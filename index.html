@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ÇYD 5th Grade – Theme 1 School Life – Revision Worksheet</title>
+<style>
+  :root{
+    --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; --bg:#f6f7fb; --card:#fff;
+    --accent:#2563eb; --accent-soft:#e8efff; --ok:#15803d; --ok-soft:#e7f6ec;
+    --bad:#b91c1c; --bad-soft:#fdecec; --warn:#a16207;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:17px}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+  header.top{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:18px}
+  .badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
+  h1{font-size:26px;margin:10px 0 6px}
+  .sub{color:var(--muted);margin:0 0 16px}
+  .who{display:flex;gap:12px;flex-wrap:wrap}
+  .who label{flex:1 1 200px;font-size:14px;font-weight:600;color:var(--muted)}
+  .who input{display:block;width:100%;margin-top:4px;padding:9px 11px;border:1px solid #cfd4dc;border-radius:8px;font-size:16px}
+  h2.section{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:30px 4px 10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:14px}
+  .card h3{margin:0 0 4px;font-size:19px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  .card h3 .pts{font-size:14px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .card h3 .pts.full{color:var(--ok)} .card h3 .pts.part{color:var(--warn)} .card h3 .pts.zero{color:var(--bad)}
+  .instr{color:var(--muted);margin:0 0 12px}
+  .box{display:flex;flex-wrap:wrap;gap:8px;border:2px dashed #c7d2fe;background:#f8faff;border-radius:10px;padding:10px 12px;margin-bottom:12px}
+  .box span{background:#fff;border:1px solid #c7d2fe;border-radius:6px;padding:2px 9px;font-weight:600;font-size:15px}
+  ol.items{margin:0;padding-left:0;list-style:none}
+  ol.items li{padding:8px 0;border-bottom:1px dashed var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  ol.items li:last-child{border-bottom:0}
+  .num{font-weight:700;min-width:24px;color:var(--muted)}
+  select,input.ans{font:inherit;font-size:16px;padding:5px 8px;border:1px solid #cfd4dc;border-radius:7px;background:#fff;color:var(--ink)}
+  input.ans{min-width:240px;flex:1 1 240px}
+  input.ans.short{min-width:150px;flex:0 1 220px}
+  select:focus,input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .correct{border-color:var(--ok)!important;background:var(--ok-soft)!important}
+  .wrong{border-color:var(--bad)!important;background:var(--bad-soft)!important}
+  .fix{font-size:14px;font-weight:600;color:var(--ok);margin-left:4px}
+  .mark{font-weight:800;margin-left:2px}
+  .mark.ok{color:var(--ok)} .mark.no{color:var(--bad)}
+  .reading{background:#fffbea;border-left:4px solid #f59e0b;border-radius:8px;padding:12px 16px;margin:0 0 14px}
+  .reading p{margin:4px 0}
+  .para{line-height:2.4}
+  .para select{margin:0 2px}
+  .tf label{margin-right:10px;font-weight:600;cursor:pointer}
+  .tf{margin-left:auto;white-space:nowrap}
+  .tf.correct,.tf.wrong{padding:2px 8px;border-radius:7px;border:1px solid}
+  textarea{width:100%;min-height:150px;font:inherit;font-size:16px;padding:10px 12px;border:1px solid #cfd4dc;border-radius:8px;resize:vertical}
+  .wc{font-size:13px;color:var(--muted);margin-top:4px}
+  .example{font-style:italic;color:var(--muted)}
+  .hint{font-size:14px;font-style:italic;color:var(--muted);margin:10px 0 0}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+  button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:12px 22px;cursor:pointer}
+  .primary{background:var(--accent);color:#fff}
+  .primary:hover{background:#1d4ed8}
+  .ghost{background:#fff;color:var(--ink);border:1px solid #cfd4dc}
+  #result{display:none;background:var(--card);border:2px solid var(--accent);border-radius:14px;padding:20px 24px;margin-bottom:18px;text-align:center}
+  #result .score{font-size:42px;font-weight:800;color:var(--accent);margin:4px 0}
+  #result .msg{font-size:18px;font-weight:600}
+  #result .note{color:var(--muted);font-size:14px;margin-top:6px}
+  .bar{height:12px;background:var(--line);border-radius:999px;overflow:hidden;margin:12px auto 0;max-width:420px}
+  .bar div{height:100%;background:var(--accent);width:0;transition:width .8s}
+  #warn{display:none;color:var(--warn);font-weight:600;text-align:center;margin-top:12px}
+  @media print{body{background:#fff}.actions,#warn{display:none}.card,header.top{break-inside:avoid;border-color:#ccc}}
+  @media (max-width:560px){.card{padding:16px}.tf{margin-left:0}input.ans{min-width:0}}
+  .send{margin-top:14px;padding:10px 14px;border-radius:10px;font-weight:600;font-size:15px}
+  .send.busy{background:#f3f4f6;color:#374151}
+  .send.ok{background:#e7f6ec;color:#15803d}
+  .send.fail{background:#fdecec;color:#b91c1c}
+  .send button{padding:6px 14px;font-size:14px;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="badge">ÇYD 5TH GRADE · THEME 1</span>
+    <h1>School Life – Revision Worksheet</h1>
+    <p class="sub">Revise people and places at school, school clubs, national days, a / an / the, imperatives, must / mustn't and greetings. Write your name and class, then press <b>Submit</b> at the end to see your score. Your answers and score are sent to your teacher.</p>
+    <div class="who">
+      <label>Name<input id="stuName" type="text" autocomplete="off"></label>
+      <label>Class<input id="stuClass" type="text" autocomplete="off"></label>
+    </div>
+  </header>
+
+  <div id="result" aria-live="polite">
+    <div id="resName"></div>
+    <div class="score" id="resScore"></div>
+    <div class="msg" id="resMsg"></div>
+    <div class="bar"><div id="resBar"></div></div>
+    <div class="note">Wrong answers are shown in red with the correct answer in green. Writing (Activities 12–14) is marked by your teacher.</div>
+  </div>
+
+  <form id="sheet" autocomplete="off" onsubmit="return false">
+    <div id="activities"></div>
+
+    <h2 class="section">Writing</h2>
+
+    <div class="card">
+      <h3>Activity 12: Questions about me <span class="pts">Teacher marks</span></h3>
+      <p class="instr">Answer the questions in full sentences.</p>
+      <ol class="items" id="a12"></ol>
+    </div>
+
+    <div class="card">
+      <h3>Activity 13: Our Class Rules <span class="pts">Teacher marks</span></h3>
+      <p class="instr">Write <b>five</b> rules for your classroom. Use <b>must</b>, <b>mustn't</b>, an imperative (<i>Be…</i>) or a negative imperative (<i>Don't…</i>).</p>
+      <ol class="items" id="a13"></ol>
+    </div>
+
+    <div class="card">
+      <h3>Activity 14: A Day at My School <span class="pts">Teacher marks</span></h3>
+      <p class="instr">Write a short paragraph (5–6 sentences) about your school: your school, grade and class · the places at your school · your favourite subject and club · your teachers and friends · one or two school rules.</p>
+      <p class="example">Example start: "Hello! I'm … . I'm a fifth-grade student at …"</p>
+      <textarea id="a14" placeholder="Write your paragraph here…"></textarea>
+      <div class="wc" id="a14wc">0 words</div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="primary" id="submitBtn">Submit &amp; Check</button>
+      <button type="button" class="ghost" id="retryBtn" style="display:none">Try Again</button>
+      <button type="button" class="ghost" onclick="window.print()">Print</button>
+    </div>
+    <div id="warn"></div>
+  </form>
+</div>
+
+<script>
+/* ---------- Answer checking helpers ---------- */
+function norm(s){
+  return (s||"").toLowerCase()
+    .replace(/[’‘`]/g,"'")
+    .replace(/\bdo not\b/g,"don't")
+    .replace(/\bmust not\b/g,"mustn't")
+    .replace(/[.!?,;:]/g," ")
+    .replace(/\s+/g," ").trim();
+}
+const has = (s, ...words) => words.every(w => (Array.isArray(w) ? w.some(x => s.includes(x)) : s.includes(w)));
+
+/* ---------- Worksheet data ---------- */
+const A1_OPTS = ["a. cooks lunch for the students","b. teaches sports and games","c. looks after the books in the library","d. is the head of the school","e. helps sick students"];
+const A2_OPTS = ["classroom","gym","computer lab","playground","teachers' room","music room"];
+const A3_OPTS = ["chess club","dance club","art club","science club","drama club"];
+const A4_OPTS = ["April 23rd","May 19th","August 30th","October 29th"];
+const A11_OPTS = ["afternoon","What","name","meet","Nice","you","too","from"];
+
+const ACTIVITIES = [
+  {section:"Vocabulary"},
+  {id:"a1", title:"Activity 1: Who is it?", instr:"Match the people at school with what they do.", type:"select", opts:A1_OPTS, items:[
+    {pre:"Librarian –", ans:A1_OPTS[2]},
+    {pre:"School nurse –", ans:A1_OPTS[4]},
+    {pre:"PE teacher –", ans:A1_OPTS[1]},
+    {pre:"Cook –", ans:A1_OPTS[0]},
+    {pre:"Headmaster –", ans:A1_OPTS[3]},
+  ]},
+  {id:"a2", title:"Activity 2: Where are they?", instr:"Complete the sentences with the places in the box.", box:A2_OPTS, type:"select", opts:A2_OPTS, items:[
+    {pre:"We play games in the", post:"at break time.", ans:"playground"},
+    {pre:"We use computers in the", post:".", ans:"computer lab"},
+    {pre:"The teachers drink tea in the", post:".", ans:"teachers' room"},
+    {pre:"We play basketball in the", post:".", ans:"gym"},
+    {pre:"We play the guitar and sing in the", post:".", ans:"music room"},
+    {pre:"We have English lessons in the", post:".", ans:"classroom"},
+  ]},
+  {id:"a3", title:"Activity 3: Which club?", instr:"Choose the best club for each student.", box:A3_OPTS, type:"select", opts:A3_OPTS, items:[
+    {pre:"Deniz likes drawing and colouring. She joins the", post:".", ans:"art club"},
+    {pre:"Kerem plays chess every day. He is in the", post:".", ans:"chess club"},
+    {pre:"Ayşe loves acting in plays. She is a member of the", post:".", ans:"drama club"},
+    {pre:"Tom likes experiments. His favourite is the", post:".", ans:"science club"},
+    {pre:"Zehra loves music and dancing. She goes to the", post:".", ans:"dance club"},
+  ]},
+  {id:"a4", title:"Activity 4: National days", instr:"Complete the sentences with the dates in the box.", box:A4_OPTS, type:"select", opts:A4_OPTS, items:[
+    {pre:"We celebrate Republic Day on", post:".", ans:"October 29th"},
+    {pre:"We celebrate Victory Day on", post:".", ans:"August 30th"},
+    {pre:"We celebrate National Sovereignty and Children's Day on", post:".", ans:"April 23rd"},
+    {pre:"We celebrate Commemoration of Atatürk, Youth and Sports Day on", post:".", ans:"May 19th"},
+  ]},
+
+  {section:"Grammar"},
+  {id:"a5", title:"Activity 5: a or an?", instr:"Choose a or an. (Use an before a, e, i, o, u sounds.)", type:"select", opts:["a","an"], items:[
+    {post:"map",ans:"a"},{post:"orange",ans:"an"},{post:"ruler",ans:"a"},{post:"old classroom",ans:"an"},
+    {post:"notebook",ans:"a"},{post:"ice cream",ans:"an"},{post:"big library",ans:"a"},{post:"English teacher",ans:"an"},
+    {post:"computer",ans:"a"},{post:"art lesson",ans:"an"},{post:"apple",ans:"an"},{post:"school bus",ans:"a"},
+  ]},
+  {id:"a6", title:"Activity 6: a, an or the?", instr:"Complete the text with a, an or the.", type:"para", opts:["a","an","the"],
+    text:"Hi! I'm Leyla. I am {} student at Atatürk Secondary School. My school has {} gym and {} big garden. {} gym is new. My brother is {} engineer, and my mother is {} teacher. {} teacher in my class is very kind. I have {} apple in my bag every day.",
+    ans:["a","a","a","the","an","a","the","an"],
+    hint:'Hint: Use "the" for something specific or already mentioned.'},
+  {id:"a7", title:"Activity 7: School rules (Imperatives)", instr:"Put the words in order to make school rules. Type the sentence.", type:"text",
+    example:{pre:"hand / raise / your →", text:"Raise your hand."}, items:[
+    {pre:"the / listen / teacher / to →", ans:"Listen to the teacher.", ok:s=>s==="listen to the teacher"},
+    {pre:"walls / don't / on / write / the →", ans:"Don't write on the walls.", ok:s=>s==="don't write on the walls"},
+    {pre:"homework / your / do →", ans:"Do your homework.", ok:s=>s==="do your homework"},
+    {pre:"food / don't / in / eat / class →", ans:"Don't eat food in class.", ok:s=>s==="don't eat food in class"},
+    {pre:"on / be / time →", ans:"Be on time.", ok:s=>s==="be on time"},
+  ]},
+  {id:"a8", title:"Activity 8: must or mustn't?", instr:"Complete the rules with must or mustn't.", type:"select", opts:["must","mustn't"], items:[
+    {pre:"You", post:"talk in the library.", ans:"mustn't"},
+    {pre:"Students", post:"come to school on time.", ans:"must"},
+    {pre:"We", post:"wear our uniforms.", ans:"must"},
+    {pre:"You", post:"throw rubbish on the floor.", ans:"mustn't"},
+    {pre:"We", post:"respect our teachers.", ans:"must"},
+    {pre:"You", post:"cheat in exams.", ans:"mustn't"},
+  ], hint:"must = you have to do it · mustn't = you are not allowed to do it"},
+
+  {section:"Reading"},
+  {id:"a9", title:"Activity 9: Zeynep's School – True or False", instr:"Read the text. Choose True or False.", type:"tf",
+    reading:["Hi! My name is Zeynep. I'm eleven years old and I'm from Izmir. I'm a fifth-grade student at Güneş Secondary School. My school is big. It has a library, a gym and a science lab. My favourite subject is science, and my favourite club is the chess club. My science teacher is Mr. Demir. My best friend is Elif. At our school, we must raise our hands to speak, and we mustn't use our phones in class. I like my school very much."],
+    items:[
+    {pre:"Zeynep is ten years old.", ans:"F"},
+    {pre:"She is from Izmir.", ans:"T"},
+    {pre:"Her school has a science lab.", ans:"T"},
+    {pre:"Her favourite club is the drama club.", ans:"F"},
+    {pre:"Students mustn't use their phones in class.", ans:"T"},
+    {pre:"Zeynep doesn't like her school.", ans:"F"},
+  ]},
+  {id:"a10", title:"Activity 10: Republic Day – Short Answers", instr:"Read the dialogue and answer the questions.", type:"text",
+    reading:["<b>Can:</b> October 29th is tomorrow!","<b>Selin:</b> Yes, it's Republic Day. I'm so excited.","<b>Can:</b> We have a ceremony in the school garden.","<b>Selin:</b> We sing the national anthem and read poems.","<b>Can:</b> Our headmaster gives a speech.","<b>Selin:</b> We all carry Turkish flags. It's a special day!"],
+    items:[
+    {pre:"When is Republic Day? – It is on", ans:"October 29th", short:true, ok:s=>has(s,"29")||has(s,"twenty-ninth")||has(s,"twenty ninth")},
+    {pre:"Where is the ceremony? – It is in the", ans:"school garden", short:true, ok:s=>has(s,"garden")},
+    {pre:"What do the students do? – They", ans:"sing the national anthem and read poems", ok:s=>has(s,"sing",["poem","anthem"])},
+    {pre:"Who gives a speech? – The", ans:"headmaster", short:true, ok:s=>has(s,["headmaster","head master","principal"])},
+    {pre:"What do the students carry? – They carry", ans:"Turkish flags", short:true, ok:s=>has(s,"flag")},
+  ]},
+  {id:"a11", title:"Activity 11: Meeting a new friend", instr:"Complete the dialogue with the words in the box.", box:A11_OPTS, type:"para", opts:A11_OPTS, dialogue:true,
+    text:"<b>Emma:</b> Hello! Good {}!|<b>Arda:</b> Hi! Good afternoon!|<b>Emma:</b> {} is your name?|<b>Arda:</b> My {} is Arda. And you?|<b>Emma:</b> I'm Emma. I'm {} London.|<b>Arda:</b> Nice to {} you.|<b>Emma:</b> {} to meet {}, {}!",
+    ans:["afternoon","What","name","from","meet","Nice","you","too"]},
+];
+
+/* ---------- Rendering ---------- */
+const root = document.getElementById("activities");
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+function selectHTML(opts, name){
+  return `<select data-q="${name}"><option value="">—</option>${opts.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join("")}</select>`;
+}
+const fields = []; // {act, el, ans, ok, type}
+
+ACTIVITIES.forEach(act=>{
+  if(act.section){ root.insertAdjacentHTML("beforeend",`<h2 class="section">${act.section}</h2>`); return; }
+  const card = document.createElement("div");
+  card.className = "card"; card.id = act.id;
+  let h = `<h3>${act.title}<span class="pts" data-pts="${act.id}"></span></h3><p class="instr">${act.instr}</p>`;
+  if(act.box) h += `<div class="box">${act.box.map(w=>`<span>${esc(w)}</span>`).join("")}</div>`;
+  if(act.reading) h += `<div class="reading">${act.reading.map(p=>`<p>${p}</p>`).join("")}</div>`;
+
+  if(act.type==="para"){
+    let i = 0;
+    const fill = t => t.replace(/\{\}/g, ()=> selectHTML(act.opts, act.id+"-"+(i++)));
+    if(act.dialogue) h += `<div class="reading">${act.text.split("|").map(l=>`<p class="para">${fill(l)}</p>`).join("")}</div>`;
+    else h += `<p class="para">${fill(act.text)}</p>`;
+  } else {
+    h += `<ol class="items">`;
+    let n = 1;
+    if(act.example) h += `<li><span class="num">${n++}.</span> ${act.example.pre} <span class="example">${act.example.text}</span> <span class="fix">(example)</span></li>`;
+    act.items.forEach((it,idx)=>{
+      const q = act.id+"-"+idx;
+      let ctl;
+      if(act.type==="select") ctl = selectHTML(act.opts,q);
+      else if(act.type==="text") ctl = `<input class="ans${it.short?" short":""}" type="text" data-q="${q}" spellcheck="false">`;
+      else if(act.type==="tf") ctl = `<span class="tf" data-q="${q}"><label><input type="radio" name="${q}" value="T"> True</label><label><input type="radio" name="${q}" value="F"> False</label></span>`;
+      h += `<li><span class="num">${n++}.</span> ${it.pre?it.pre+" ":""}${ctl}${it.post?" "+it.post:""}<span class="res" data-res="${q}"></span></li>`;
+    });
+    h += `</ol>`;
+  }
+  if(act.hint) h += `<p class="hint">${act.hint}</p>`;
+  card.innerHTML = h;
+  root.appendChild(card);
+
+  // register fields
+  if(act.type==="para"){
+    card.querySelectorAll("select").forEach((el,i)=>{
+      const res = document.createElement("span"); res.className="res"; el.after(res);
+      fields.push({act:act.id, el, res, ans:act.ans[i], type:"select"});
+    });
+  } else {
+    act.items.forEach((it,idx)=>{
+      const q = act.id+"-"+idx;
+      const el = card.querySelector(`[data-q="${q}"]`);
+      const res = card.querySelector(`[data-res="${q}"]`);
+      fields.push({act:act.id, el, res, ans:it.ans, ok:it.ok, type:act.type});
+    });
+  }
+});
+
+/* Writing sections */
+const a12q = ["What's your name?","Where are you from?","What's the name of your school?","What's your favourite subject?","Which club do you like? Why?","Who is your best friend at school?"];
+document.getElementById("a12").innerHTML = a12q.map((q,i)=>`<li><span class="num">${i+1}.</span> ${q} <input class="ans" type="text"></li>`).join("");
+document.getElementById("a13").innerHTML = [1,2,3,4,5].map(i=>`<li><span class="num">${i}.</span> <input class="ans" type="text"></li>`).join("");
+const ta = document.getElementById("a14"), wc = document.getElementById("a14wc");
+ta.addEventListener("input",()=>{ const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0; wc.textContent = n+" word"+(n===1?"":"s"); });
+
+/* ---------- Marking ---------- */
+function valueOf(f){
+  if(f.type==="tf"){ const c = f.el.querySelector("input:checked"); return c ? c.value : ""; }
+  return f.el.value;
+}
+function isRight(f, v){
+  if(!v) return false;
+  if(f.ok) return f.ok(norm(v));
+  return v === f.ans;
+}
+function mark(){
+  if(needName()) return;
+  const blanks = fields.filter(f=>!valueOf(f)).length;
+  const warn = document.getElementById("warn");
+  if(blanks && !document.getElementById("submitBtn").dataset.confirm){
+    warn.style.display="block";
+    warn.textContent = `You have ${blanks} empty answer${blanks>1?"s":""}. Press Submit again to finish anyway.`;
+    document.getElementById("submitBtn").dataset.confirm = "1";
+    return;
+  }
+  warn.style.display="none";
+
+  const per = {};
+  let total = 0, max = 0;
+  fields.forEach(f=>{
+    const v = valueOf(f), right = isRight(f,v);
+    per[f.act] = per[f.act] || {s:0,m:0};
+    per[f.act].m++; max++;
+    if(right){ per[f.act].s++; total++; }
+    f.el.classList.add(right?"correct":"wrong");
+    f.res.innerHTML = right ? `<span class="mark ok">✓</span>` : `<span class="mark no">✗</span><span class="fix">${esc(f.ans)}</span>`;
+    f.el.querySelectorAll ? f.el.querySelectorAll("input").forEach(i=>i.disabled=true) : null;
+    f.el.disabled = true;
+  });
+  document.querySelectorAll("[data-pts]").forEach(el=>{
+    const p = per[el.dataset.pts]; if(!p) return;
+    el.textContent = `${p.s} / ${p.m}`;
+    el.className = "pts " + (p.s===p.m?"full":p.s===0?"zero":"part");
+  });
+
+  const pct = Math.round(total/max*100);
+  const name = document.getElementById("stuName").value.trim();
+  const cls = document.getElementById("stuClass").value.trim();
+  document.getElementById("resName").textContent = [name, cls && "Class "+cls].filter(Boolean).join(" · ");
+  document.getElementById("resScore").textContent = `${total} / ${max}  (${pct}%)`;
+  document.getElementById("resMsg").textContent =
+    pct>=90 ? "Excellent! You know Theme 1 very well. 🌟" :
+    pct>=75 ? "Great job! Check the red answers." :
+    pct>=50 ? "Good try! Revise the red answers and try again." :
+              "Keep practising! Look at the correct answers and try again.";
+  const res = document.getElementById("result");
+  res.style.display = "block";
+  setTimeout(()=>document.getElementById("resBar").style.width = pct+"%", 50);
+  document.getElementById("submitBtn").style.display = "none";
+  document.getElementById("retryBtn").style.display = "inline-block";
+  sendResults();
+  res.scrollIntoView({behavior:"smooth", block:"start"});
+}
+function reset(){
+  fields.forEach(f=>{
+    f.el.classList.remove("correct","wrong"); f.res.innerHTML = ""; f.el.disabled = false;
+    if(f.type==="tf") f.el.querySelectorAll("input").forEach(i=>{i.checked=false;i.disabled=false;});
+    else f.el.value = "";
+  });
+  document.querySelectorAll("[data-pts]").forEach(el=>{el.textContent="";el.className="pts";});
+  document.getElementById("result").style.display="none";
+  document.getElementById("resBar").style.width="0";
+  const sb = document.getElementById("submitBtn"); sb.style.display="inline-block"; delete sb.dataset.confirm;
+  document.getElementById("retryBtn").style.display="none";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("submitBtn").addEventListener("click", mark);
+document.getElementById("retryBtn").addEventListener("click", reset);
+fields.forEach(f=> f.el.addEventListener("change", ()=>{ delete document.getElementById("submitBtn").dataset.confirm; document.getElementById("warn").style.display="none"; }));
+
+/* =================== SEND RESULTS TO TEACHER (Formspree) =================== */
+const FORM_URL = "https://formspree.io/f/mdeevnnb";
+let attemptNo = 0, lastPayload = null;
+function needName(){
+  const n = document.getElementById("stuName"), c = document.getElementById("stuClass"), w = document.getElementById("warn");
+  if(!n.value.trim() || !c.value.trim()){
+    w.style.display = "block";
+    w.textContent = "Please write your name and class at the top before you submit.";
+    (n.value.trim() ? c : n).focus();
+    n.scrollIntoView({behavior:"smooth", block:"center"});
+    return true;
+  }
+  return false;
+}
+function cardTitle(el){
+  const card = el.closest(".card"); if(!card) return "Other";
+  const h = card.querySelector("h3"); return h ? h.firstChild.textContent.trim() : "Other";
+}
+function questionText(el){
+  const li = el.closest("li"); if(!li) return "";
+  const c = li.cloneNode(true);
+  c.querySelectorAll(".num,.res,.mc,.tf,.fix").forEach(e=>e.remove());
+  c.querySelectorAll("select,input,textarea").forEach(e=>e.replaceWith(" ___ "));
+  return c.textContent.replace(/\s+/g," ").trim();
+}
+function buildPayload(){
+  const chk = (typeof isRight === "function") ? isRight : (f,v)=> !!v && v === f.ans;
+  const groups = new Map(); let total = 0, max = 0;
+  const used = new Set();
+  fields.forEach(f=>{
+    used.add(f.el);
+    const t = cardTitle(f.el);
+    if(!groups.has(t)) groups.set(t,{s:0,m:0,lines:[]});
+    const g = groups.get(t), v = valueOf(f), ok = !!chk(f,v);
+    g.m++; max++; if(ok){ g.s++; total++; }
+    const q = questionText(f.el) || ("Blank " + g.m);
+    const ans = String(f.ans).replace(/<[^>]+>/g,"");
+    g.lines.push(`${g.m}. ${q}\n    Answer: ${v || "(empty)"}  ${ok ? "✓" : "✗  (correct: " + ans + ")"}`);
+  });
+  const name = document.getElementById("stuName").value.trim();
+  const cls = document.getElementById("stuClass").value.trim();
+  const pct = Math.round(total/max*100);
+  const p = {
+    _subject: `${document.title} – ${name} (${cls}) – ${total}/${max}`,
+    "Worksheet": document.title,
+    "Name": name,
+    "Class": cls,
+    "Score": `${total} / ${max} (${pct}%)`,
+    "Attempt": String(attemptNo),
+    "Submitted at": new Date().toLocaleString("en-GB"),
+  };
+  groups.forEach((g,t)=>{ p[`${t}  [${g.s}/${g.m}]`] = g.lines.join("\n"); });
+  // writing (teacher-marked) answers
+  const writing = new Map();
+  document.querySelectorAll("#sheet input[type=text], #sheet textarea").forEach(el=>{
+    if(used.has(el)) return;
+    const t = cardTitle(el);
+    if(!writing.has(t)) writing.set(t, []);
+    const arr = writing.get(t), q = questionText(el);
+    const v = el.value.trim() || "(empty)";
+    arr.push(q ? `${arr.length+1}. ${q}\n    ${v}` : v);
+  });
+  writing.forEach((arr,t)=>{ p[`${t}  [writing – teacher marks]`] = arr.join("\n"); });
+  return p;
+}
+function setSendStatus(state, text){
+  let box = document.getElementById("sendStatus");
+  if(!box){
+    box = document.createElement("div"); box.id = "sendStatus";
+    document.getElementById("result").appendChild(box);
+  }
+  box.className = "send " + state;
+  box.innerHTML = text + (state === "fail" ? ` <button type="button" class="ghost" id="resendBtn">Send again</button>` : "");
+  const rb = document.getElementById("resendBtn"); if(rb) rb.onclick = ()=> postPayload(lastPayload);
+}
+async function postPayload(payload){
+  setSendStatus("busy", "⏳ Sending your answers to your teacher…");
+  try{
+    const r = await fetch(FORM_URL, {method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(payload)});
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    setSendStatus("ok", "✅ Your answers and score were sent to your teacher.");
+  }catch(e){
+    setSendStatus("fail", "⚠️ Your answers could not be sent. Check your internet connection and press Send again. If it still does not work, show this score to your teacher.");
+  }
+}
+function sendResults(){
+  attemptNo++;
+  lastPayload = buildPayload();
+  postPayload(lastPayload);
+}
+</script>
+</body>
+</html>
